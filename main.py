@@ -1,4 +1,5 @@
-import tkinter as Tkinter
+from tkinter import ttk
+from ttkthemes import ThemedTk
 
 running = False
 h = 0
@@ -66,27 +67,27 @@ def Reset(label):
     reset.config(state='disabled')
 
 
-root = Tkinter.Tk()
+root = ThemedTk(theme="yaru")
 root.title("Stopwatch")
 
 start_title1 = "Hours: 00"
 start_title2 = "Minutes: 00"
 start_title3 = "Seconds: 00"
 
-label = Tkinter.Label(root, text=start_title1, fg="black", font="Verdana 30 bold", anchor='w')
+label = ttk.Label(root, text=start_title1, foreground="black", font="Courier 30 italic", anchor='w')
 label.pack(fill='both')
 
-label2 = Tkinter.Label(root, text=start_title2, fg="black", font="Verdana 30 bold", anchor='w')
+label2 = ttk.Label(root, text=start_title2, foreground="black", font="Courier 30 italic", anchor='w')
 label2.pack(fill='both')
 
-label3 = Tkinter.Label(root, text=start_title3, fg="black", font="Verdana 30 bold", anchor='w')
+label3 = ttk.Label(root, text=start_title3, foreground="black", font="Courier 30 italic", anchor='w')
 label3.pack(fill='both')
 
-f = Tkinter.Frame(root)
+f = ttk.Frame(root)
 
-start = Tkinter.Button(f, text='Start', width=6, command=lambda: Start(label))
-stop = Tkinter.Button(f, text='Stop', width=6, state='disabled', command=Stop)
-reset = Tkinter.Button(f, text='Reset', width=6, state='disabled', command=lambda: Reset(label))
+start = ttk.Button(f, text='Start', width=6, command=lambda: Start(label))
+stop = ttk.Button(f, text='Stop', width=6, state='disabled', command=Stop)
+reset = ttk.Button(f, text='Reset', width=6, state='disabled', command=lambda: Reset(label))
 f.pack(anchor='center', pady=5)
 start.pack(side="left")
 stop.pack(side="left")
